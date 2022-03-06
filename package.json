@@ -1,0 +1,18 @@
+{
+  "name": "heart",
+  "version": "0.0.1",
+  "description": "heart Blog ",
+  "main": "index.js",
+  "author": "heart",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.36"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "dependencies": {
+    "typescript": "^4.6.2"
+  }
+}
