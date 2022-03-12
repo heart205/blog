@@ -13,6 +13,8 @@
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
+    "@vuepress/plugin-register-components": "^2.0.0-beta.36",
+    "ant-design-vue": "^1.7.8",
     "typescript": "^4.6.2"
   }
 }

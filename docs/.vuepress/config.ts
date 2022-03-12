@@ -1,6 +1,6 @@
 import { defineUserConfig } from 'vuepress'
 import type { DefaultThemeOptions } from 'vuepress'
-
+const { path } = require('@vuepress/utils')
 export default defineUserConfig<DefaultThemeOptions>({
   // 站点配置
   lang: 'zh-CN',
@@ -8,4 +8,18 @@ export default defineUserConfig<DefaultThemeOptions>({
   description: 'heart',
   // 主题和它的配置
   theme: '@vuepress/theme-default',
+  themeConfig: {
+    sidebar: 'auto',
+  },
+  plugins: [
+    [
+      '@vuepress/register-components',
+      {
+        componentsDir: path.resolve(__dirname, './components'),
+        components: {
+          'heart-layout': path.resolve(__dirname, './theme/layouts/Layout.vue'),
+        },
+      },
+    ],
+  ],
 })
