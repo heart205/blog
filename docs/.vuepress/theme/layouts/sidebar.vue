@@ -17,8 +17,7 @@
       titles: [],
     },
     render() {
-      console.log(this)
-      const a = h(
+      return  h(
         this.titles.type,
         {},
         this.titles && this.titles.children instanceof Array
@@ -27,8 +26,6 @@
             })
           : [this.titles.text]
       )
-      console.log(a)
-      return a
     },
   }
 </script>
