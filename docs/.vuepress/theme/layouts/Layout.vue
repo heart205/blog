@@ -4,10 +4,14 @@
       <div className="custom-shape-divider"></div>
     </div>
     <div class="container">
-      <Content ref="container" />
-      <template v-for="(item, index) in titles" :key="index">
-        <SiderBar :titles="item" />
-      </template>
+      <div class="siderbar">
+        <template v-for="(item, index) in titles" :key="index">
+          <SiderBar :titles="item" />
+        </template>
+      </div>
+      <main>
+        <Content ref="container" />
+      </main>
     </div>
   </div>
 </template>
@@ -31,7 +35,6 @@
     methods: {
       // 推测title的标题是第几标题
       // TODO: 判断数字开头的情况
-
       inferTitleNumber(title: string): number {
         const reg = /H(\d)/
         if (reg.test(title)) {
@@ -92,38 +95,6 @@
         }
       }
     },
-    /**
-     * 数组添加h标签
-     */
-    arrayPushHeader(headNode: HTMLHeadingElement): void {
-      const header = this.titles
-      const reg = /H(\d)/g
-      if (reg.test(header.nodeName)) {
-        if (header.length === 0) {
-          this.factoryAddTitles(RegExp.$1, headNode.getAttribute('id'))
-        }
-      }
-    },
-    /**
-     * @param: {num} 1-6 表示的是第几标签 新增标签的
-     */
-    factoryAddTitles(
-      num: number,
-      text: string,
-      children?: Array<titles> | null
-    ): void {
-      if (children === undefined) {
-        this.titles.push({
-          type: `H${num}`,
-          text,
-          children: null,
-        })
-      } else if (children) {
-        // TODO: Array<titles>的状况
-      } else {
-        // TODO: null的情况
-      }
-    },
   }
 </script>
 
@@ -174,6 +145,12 @@
     }
   }
   .container {
-    position: relative;
+    display: flex;
+  }
+  .siderbar{
+    width: 200px;
+    border-right: 1px solid var(--c-border);
+    margin-right: 40px;
+    padding: 1.5rem 0;
   }
 </style>
