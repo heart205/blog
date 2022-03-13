@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div className="heart-main">
-      <div className="custom-shape-divider"></div>
+    <div class="heart-main">
+      <div class="custom-shape-divider"></div>
     </div>
     <div class="container">
       <div class="siderbar">
