@@ -108,7 +108,7 @@
     background: linear-gradient(217deg, #ece5b8, #defbba 70.71%),
       linear-gradient(127deg, #e9e9b8, #eae7b8 70.71%),
       linear-gradient(336deg, #f3d7b7, #efdeb8 70.71%);
-    animation: color-change 3s linear infinite;
+    animation: color-change 8s linear infinite;
     height: 100vh;
   }
   .img-main {
