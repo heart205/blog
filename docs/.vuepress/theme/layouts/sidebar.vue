@@ -1,6 +1,6 @@
 <script>
   import { h } from 'vue'
-  // TODO: vue写递归组件 生成侧边栏
+  // DONE: vue写递归组件 生成侧边栏
   function hRender(h, x) {
     return h('li', [
       h('a', { href: '#' + x.text }, [x.text]),
