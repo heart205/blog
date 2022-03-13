@@ -147,10 +147,17 @@
   .container {
     display: flex;
   }
-  .siderbar{
+  .siderbar {
     width: 200px;
     border-right: 1px solid var(--c-border);
     margin-right: 40px;
     padding: 1.5rem 0;
+    transition: all 0.3s ease;
+  }
+  @media screen and (max-width: 768px) {
+    .siderbar {
+      width: 0px;
+      overflow: hidden;
+    }
   }
 </style>
