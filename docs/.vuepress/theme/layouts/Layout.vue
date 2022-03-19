@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="heart-main">
-      <div class="custom-shape-divider"></div>
+    <div class="heart-main bgc">
+      <img src="../../assets/image/main.png" alt="" />
     </div>
     <div class="container">
       <div class="siderbar">
@@ -9,7 +9,7 @@
           <SiderBar :titles="item" />
         </template>
       </div>
-      <main>
+      <main class="flex-1">
         <Content ref="container" />
       </main>
     </div>
@@ -78,11 +78,7 @@
     mounted() {
       // 获取侧边栏状态栏
       const total = ['H1', 'H2', 'H3', 'H4', 'H5']
-      let titleCollection: T =
-        (this.$refs.container &&
-          this.$refs.container.parentNode &&
-          this.$refs.container.parentNode.children) ||
-        null
+      let titleCollection: T = (this.$refs.container && this.$refs.container.parentNode && this.$refs.container.parentNode.children) || null
       // 用树的前序遍历来写到时候
       if (titleCollection) {
         for (let i in titleCollection) {
@@ -105,9 +101,8 @@
   }
   .heart-main {
     position: relative;
-    background: linear-gradient(217deg, #ece5b8, #defbba 70.71%),
-      linear-gradient(127deg, #e9e9b8, #eae7b8 70.71%),
-      linear-gradient(336deg, #f3d7b7, #efdeb8 70.71%);
+    background-color: #fee140;
+    background-image: linear-gradient(90deg, #fee140 0%, #fa709a 100%);
     animation: color-change 8s linear infinite;
     height: 100vh;
   }
@@ -159,5 +154,13 @@
       width: 0px;
       overflow: hidden;
     }
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .bgc img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
 </style>

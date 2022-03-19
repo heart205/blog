@@ -8,7 +8,7 @@ layout: 'heart-layout'
 # 介绍
 
 作者：heart <br />
-🚀 日常学习的些总结
+🚀 日常学习的一些总结
 ## 前端
 
 - [javaScript](javaScript)
@@ -28,7 +28,9 @@ layout: 'heart-layout'
 - [wallhaven](https://wallhaven.cc/)
 - [正则小网站](https://any86.github.io/any-rule/)
 - [gradient - 背景渐变色](https://cssgradient.io/)
+- [grabient - 渐变颜色选取](https://www.grabient.com/)
 - [自定义图状分割线](https://www.shapedivider.app/)
+- [clip - cli](https://bennettfeely.com/clippy/)
 
 
 ## 在线代码编辑
