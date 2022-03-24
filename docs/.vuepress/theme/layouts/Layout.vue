@@ -36,7 +36,7 @@
       // 推测title的标题是第几标题
       // TODO: 判断数字开头的情况
       inferTitleNumber(title: string): number {
-        const reg = /H(\d)/
+        const reg = /H([1-6])/
         if (reg.test(title)) {
           return Number.parseInt(RegExp.$1)
         }
@@ -101,8 +101,6 @@
   }
   .heart-main {
     position: relative;
-    background-color: #fee140;
-    background-image: linear-gradient(90deg, #fee140 0%, #fa709a 100%);
     animation: color-change 8s linear infinite;
     height: 100vh;
   }
@@ -136,7 +134,7 @@
 
   @keyframes color-change {
     from {
-      filter: hue-rotate(360deg);
+      filter: hue-rotate(36deg);
     }
   }
   .container {

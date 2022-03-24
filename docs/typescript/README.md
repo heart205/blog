@@ -311,7 +311,8 @@ type data = typeof UserResponse
 
 通过索引访问类型 可以查找到其他类型或者元素上的特定的属性
 
-> `['taobao', 'timal', 'alipay'] as const` 表示为只读数组
+> `['taobao', 'timal', 'alipay'] as const` 表示为只读数组 ’taobao', 'timal', 'alipay'
+> 因为只读数组的值是确定的 才能用 typeof X[keyof typeof X] // 获取 
 
 索引类型操作对象:
 
