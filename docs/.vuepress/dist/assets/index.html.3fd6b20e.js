@@ -1,1 +1,0 @@
-const t={key:"v-6da6abb1",path:"/typescript/",title:"TypeScript",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"\u7C7B\u578B\u4F53\u64CD",slug:"\u7C7B\u578B\u4F53\u64CD",children:[]}],git:{updatedTime:1647155182e3,contributors:[{name:"heart",email:"7362469@qq.com",commits:2}]},filePathRelative:"typescript/README.md"};export{t as data};
