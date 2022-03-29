@@ -9,6 +9,7 @@ layout: 'heart-layout'
 
 作者：heart <br />
 🚀 日常学习的一些总结
+
 ## 前端
 
 - [javaScript](javaScript)
@@ -18,6 +19,8 @@ layout: 'heart-layout'
 - [WebGL](WebGL)
 
 ## 算法
+
+- [lc](algorithm)
 
 ## 开发工具
 
@@ -32,8 +35,9 @@ layout: 'heart-layout'
 - [grabient - 渐变颜色选取](https://www.grabient.com/)
 - [自定义图状分割线](https://www.shapedivider.app/)
 - [clip - cli](https://bennettfeely.com/clippy/)
-
+- [渐变色网址](https://color.oulu.me/)
 
 ## 在线代码编辑
+
 - [codesandbox](https://codesandbox.io/)
 - [codepen](https://codepen.io/)
