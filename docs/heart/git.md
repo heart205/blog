@@ -112,15 +112,15 @@ git remote -v
 git remote set-url origin git@xxx.git
 ```
 
-拉取远程分支
+拉取远程仓库代码
 
-> main 为远程分支名字
+> main 为远程仓库名字
 
 ```shell
 git fetch origin <main>
 ```
 
-添加远程分支
+添加远程仓库
 
 > master 为分支名 url 为远程分支地址
 
@@ -128,8 +128,39 @@ git fetch origin <main>
 git remote add <master> <url>
 ```
 
-删除远程分支
+删除远程仓库
 
 ```shell
 git remote rm <master>
+```
+
+删除远程分支
+
+> 推送一个空分支到远程分支，其实就相当于删除远程分支
+
+```shell
+git push origin :dev_tmp
+// 也可以使用
+git push origin --delete dev_tmp
+```
+
+### 切换分支
+
+```shell
+git checkout <分支名>
+```
+
+### 合并分支
+
+// 将分支内容合并到 main 分支中
+
+```shell
+git merge main
+```
+
+
+### 清除本地修改
+
+```shell
+git checkout . && git clean -xdf
 ```
