@@ -145,3 +145,69 @@ function render() {
   renderer.render(scene, camera);
 }
 ```
+
+### 阴影效果
+
+> Three.js 中 能形成的阴影的光源只有 `THREE.DirectionalLight` 与 `THREE.SpotLight`
+> 表现阴影效果的材质只有 `THREE.LambertMaterial` 与 `THREE.PhongMaterial`
+> 开启阴影效果支持需要渲染器支持 使用 WebGLRender 开启渲染效果
+
+```js
+renderer = new THREE.WebGLRenderer()
+renderer.shadowMap.enabled = true // 开启阴影效果
+```
+
+```js
+webGLRenderer.shadowMap.type = THREE.PCFSoftShadowMap // 阴影的类型
+```
+
+之后设置光源 使灯光可投掷阴影
+
+> 并不是所有的灯光都可以投掷阴影，环境光就不可以
+
+```js
+var light = new THREE.PointLight(0xffffff)
+light.castShadow = true //灯光投掷阴影
+```
+
+如果阴影看起来像马赛克一样 设置阴影分辨率使得阴影更加清晰
+
+```js
+light.shadow.mapSize.width = 2048
+light.shadow.mapSize.height = 2048
+```
+
+创建可以投掷阴影的物体:
+
+```js
+var geometry = new THREE.BoxGeometry(1, 1, 1)
+var material = new THREE.MeshLambertMaterial({
+  color: 0xffffff,
+})
+// light.color =  new THREE.Color(0xffff00) // 修改聚光灯颜色
+// light.visible = false //聚光灯是否开启
+// light.angle = Math.PI / 2 // 聚光灯的角度 设置从聚光灯的位置开始可以辐射的范围，单位是弧度，应该不超过 Math.PI/2。默认值为 Math.PI/3
+// light.intensity = 3 // 聚光灯的强度，默认值为 1。
+// light.distance = 10; // 聚光灯的距离，默认值为 100。
+// light.decay = 2; // 聚光灯的衰减，默认值为 1。
+// light.penumbra = 0; // 聚光灯的阴影范围，照射面光影衰减百分比 默认值为 0。
+// light.target = scene; // 聚光灯的目标对象，arget属性用来决定光照的方向，一般会指向一个对象  默认值为 null。
+// light.exponent = 1; // 聚光灯的衰减系数，默认值为 10。
+var mesh = new THREE.Mesh(geometry, material)
+mesh.castShadow = true // 物体能够投掷阴影
+```
+
+创建可以接收阴影的对象
+
+```js
+var plance = new THREE.PlaneGeometry(10, 10)
+var material = new THREE.MeshLambertMaterial({
+  color: 0xffffff,
+})
+// 接收阴影
+var mesh = new THREE.Mesh(plance, material)
+mesh.rotation.x = -0.5 * Math.PI
+mesh.position.x = 5
+mesh.position.z = 5
+mesh.receiveShadow = true // 物体可以接收阴影
+```
