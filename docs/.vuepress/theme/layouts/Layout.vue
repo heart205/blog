@@ -101,7 +101,7 @@
   }
   .heart-main {
     position: relative;
-    animation: color-change 8s linear infinite;
+    animation: color-change 8s linear infinite alternate;
     height: 100vh;
   }
   .img-main {

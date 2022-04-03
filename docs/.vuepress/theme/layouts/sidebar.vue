@@ -14,7 +14,7 @@
   export default {
     name: 'SiderBar',
     props: {
-      titles: [],
+      titles: Object,
     },
     render() {
       return h('ul', {}, [

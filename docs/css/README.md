@@ -1,5 +1,62 @@
 # CSS
 
+# css 变量
+
+css 变量的取值操作是根据作用域取值 当前作用域没有 会向上级逐层查找
+
+```css
+:root {
+  --color: pink;
+}
+.app {
+  --color: red;
+  width: 100px;
+  height: 100px;
+  background-color: var(--color);
+}
+```
+
+## 变量用于属性值
+
+```css
+.foo {
+  --side: margin-top;
+  var(--side): 20px;
+}
+```
+
+## css 伪元素
+
+### lang 伪元素
+
+选择 lang 属性的元素
+
+```css
+p:lang(en) {
+  background-color: red;
+}
+```
+
+```html
+<!-- 由于默认的html就是带有en的 所以:lang(en) 能选择到p标签 -->
+<div>
+  <p>1</p>
+  <p>2</p>
+  <p lang="zh">3</p>
+</div>
+```
+[codepen](https://codepen.io/hearto_o/pen/eYyyOXq)
+
+## 变量默认值
+
+如果没有--color 变量 则会使用 blue 替代
+
+```css
+background-color: var(--color, blue);
+```
+
+> [CSS Custom Properties for Cascading Variables Module Level 1](https://www.w3.org/TR/css-variables-1/#custom-property)
+
 ## 移动端布局
 
 ### 设备像素 DP(device pixels)
@@ -28,3 +85,22 @@ DPR = 物理像素 / 设备独立像素
 当设备像素比为 2:1 时，使用 4（2×2）个设备像素显示 1 个 CSS 像素；
 
 当设备像素比为 3:1 时，使用 9（3×3）个设备像素显示 1 个 CSS 像素。
+
+因此在移动端开发的时候不仅要关注设备像素比 还需要关注设备的尺寸
+
+> 以媒体查询为例子：
+
+```css
+@media screen and (min-width: 375px) {
+  .app {
+    width: 375px;
+  }
+}
+@media screen and (min-width: 414px) {
+  .app {
+    width: 414px;
+  }
+}
+```
+
+> [像素比查询网站](https://screensiz.es/)<br /> > [iPhone Resolutions](https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions)
