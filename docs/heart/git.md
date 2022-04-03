@@ -158,9 +158,61 @@ git checkout <分支名>
 git merge main
 ```
 
-
 ### 清除本地修改
 
 ```shell
 git checkout . && git clean -xdf
+```
+
+### git stash
+
+将工作现场存储起来 等以后恢复现场继续工作
+
+> 当前分支已修改了代码 但是需要切换到其他分支 则可以使用 git stash 存储工作内容 （存储之后代码会被保存起来 本地代码将会暂时消失）
+>
+> 之后便可以切换分支
+
+多次`git stash` 可以用`git stash list`查看 然后恢复制定的 stash
+
+```shell
+git stash apply stash@{0}
+```
+
+```shell
+git stash list // 查看存储的工作内容列表
+```
+
+恢复存储内容：
+
+```shell
+git stash apply // 恢复存储的工作内容 但是stach的存储不会被删除 需要用git stach drop 删除
+```
+
+```shell
+git stash pop // 恢复的同时把stash内容也删了
+```
+
+git stash pop 出的 stash 是可以找回的，因为每次 git stash 都会生成一个新的 commit，只要知道 commitID, 通过 git stash apply commitID 就可以应用之前的 stash
+
+```shell
+git fsck --lost-found //会打印出所有dangling commitID
+```
+
+大概有三种类型的内容，blob、tree 和 commit
+显示每次 commit 的详细内容:
+
+```shell
+git show commitId
+```
+
+找到 commitID 之后就去执行 git stash apply commitID 可以恢复工作区
+
+### cherry-pick
+
+能复制一个特定的提交到当前分支
+
+> 通常用于 bug 修复 例如:在 master 分支上修复的 bug，想要合并到当前 dev 分支，可以用`git cherry-pick <commit>`命令，把 bug 提交的修改“复制”到当前分支，避免重复劳动。
+
+```shell
+git cherry-pick 593f63c60472ed5a5ab00d31f94fbadcdcd5f97d
 ```
