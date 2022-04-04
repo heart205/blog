@@ -45,6 +45,7 @@ p:lang(en) {
   <p lang="zh">3</p>
 </div>
 ```
+
 [codepen](https://codepen.io/hearto_o/pen/eYyyOXq)
 
 ## 变量默认值
@@ -104,3 +105,162 @@ DPR = 物理像素 / 设备独立像素
 ```
 
 > [像素比查询网站](https://screensiz.es/)<br /> > [iPhone Resolutions](https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions)
+
+## border
+
+### border-image
+
+#### border-image-source
+
+> border-image-source 用于声明元素的边框图片（border-image）的资源
+
+```css
+border-image-source: url('https://interactive-examples.mdn.mozilla.net/media/examples/border-diamonds.png');
+```
+
+> [mdn border-image-source](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-image-source)
+
+#### border-image-slice
+
+> border-image-slice 属性会将图片分割为 9 个区域：四个角，四个边（edges）以及中心区域。<br />
+> 百分比是相对于图片的大小
+> `fill` 设置此关键字 则图片的中心区域会显示
+
+切割后的四周的八个切片，四个角根据 border 设置的大小全尺寸自动缩放显示到 border 对应的四个角
+除四个角外的其他中间切片（上中，右中间，下中，左中间），可以根据设置做拉伸或重复的设置操作显示到对应的 border 位置。
+
+```css
+/* 所有的边 */
+border-image-slice: 30%;
+
+/* 垂直方向 | 水平方向 */
+border-image-slice: 10% 30%;
+
+/* 顶部 | 水平方向 | 底部 */
+border-image-slice: 30 30% 45;
+
+/* 上 右 下 左 */
+border-image-slice: 7 12 14 5;
+
+/* 使用fill（fill可以放在任意位置） */
+border-image-slice: 10% fill 7 12;
+
+/* Global values */
+border-image-slice: inherit;
+border-image-slice: initial;
+border-image-slice: unset;
+```
+
+> [裁剪图例](https://www.runoob.com/cssref/css3-pr-border-image-slice.html)<br />
+
+> [border-image-slice](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-image-slice)
+
+#### border-image-width
+
+> 百分比是相较于水平（垂直）方向上的边框图像区域高度（宽度）的偏移量 如果是数值类型 则是`border-width`的相应倍数
+
+```css
+/* 关键字 */
+/*
+ *将等同于内部对应的 border-image-slice 的宽或高（可用的话）。
+ *如果图像没有需要的相应的属性，将相对于 border-width 进行指定。
+ */
+border-image-width: auto;
+
+/* 长度 */
+border-image-width: 1rem;
+
+/* 百分比 */
+border-image-width: 25%;
+
+/* 数值 */
+border-image-width: 3;
+
+/* 垂直 | 水平 */
+border-image-width: 2em 3em;
+
+/* 上 | 横向 | 下 */
+border-image-width: 5% 15% 10%;
+
+/* 上 | 右 | 下 | 左 */
+border-image-width: 5% 2em 10% auto;
+
+/* 全局值 */
+border-image-width: inherit;
+border-image-width: initial;
+border-image-width: unset;
+```
+
+#### border-image-outset
+
+> border-image-outset 属性定义边框图像可超出边框盒的大小。(超出的部分不会影响其他盒子布局)
+
+```css
+border-image-outset: 10px;
+```
+
+#### border-image-repeat
+
+> 定义图片如何填充边框
+> 单个值，设置所有的边框
+> 两个值，分别设置水平与垂直的边框。
+
+1.  `stretch` 拉伸图片以填充边框
+2.  `repeat` 平铺图片以填充边框。
+3.  `round` 平铺图像。当不能整数次平铺时，根据情况放大或缩小图像
+4.  `space` 平铺图像 。当不能整数次平铺时，会用空白间隙填充在图像周围（不会放大或缩小图像）
+
+```css
+border-image-repeat: stretch repeat;
+```
+
+#### border-image
+
+正式的语法：
+
+```css
+<'border-image-source'> || <'border-image-slice'> [ / <'border-image-width'> | / <'border-image-width'>? / <'border-image-outset'> ]? || <'border-image-repeat'>
+```
+
+> 1.<b>border-image-outset 参数一定要在 border-image-width 之后，假设 border-image-width 缺省，仍然需要在原来 border-image-width 写上 `/`</b><br /> 2.<b>如果有 border-image-width/ border-image-outset 属性值，border-image-slice 必须指定数值，否则不合语法</b>
+
+```css
+/*合法*/
+border-image: url('https://mdn.mozillademos.org/files/4127/border.png') 30;
+
+/*10px这里作为border-image-width*/
+border-image: url('https://mdn.mozillademos.org/files/4127/border.png') 30 / 10px;
+/*10px 这里作为border-image-outset*/
+border-image: url('https://mdn.mozillademos.org/files/4127/border.png') 30 / /10px;
+
+/*正确写法：*/
+border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) 30 / 10px / 10px;
+
+/*错误写法：*/
+border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) / 10px / 10px;
+```
+
+> [border-image 的正确用法](https://blog.csdn.net/qq_41903941/article/details/90259306)<br /> > [mdn](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-image)
+
+```css
+.app {
+  width: 100px;
+  height: 100px;
+  border: 30px solid;
+  border-image: url('https://mdn.mozillademos.org/files/4127/border.png') 33% 33% fill repeat;
+}
+
+.app {
+  width: 100px;
+  height: 100px;
+  border: 30px solid;
+  /*50% 50% 切的四个角都会有颜色 但是 中间切片都为0所以为白色*/
+  border-image: url('https://mdn.mozillademos.org/files/4127/border.png') 50% 50%;
+}
+```
+
+```html
+<div class="app"></div>
+```
+
+[codepen - 渐变色边框](https://codepen.io/hearto_o/pen/wvpppNW)
