@@ -10,7 +10,7 @@ export default defineUserConfig<DefaultThemeOptions>({
   theme: '@vuepress/theme-default',
   themeConfig: {
     sidebar: 'auto',
-    sidebarDepth:3,
+    sidebarDepth: 3,
     displayAllHeaders: true // 默认值：false
   },
   plugins: [
@@ -23,5 +23,6 @@ export default defineUserConfig<DefaultThemeOptions>({
         },
       },
     ],
+    [path.resolve(__dirname, './lib/toggleDark.js'), true],
   ],
 })
