@@ -28,3 +28,21 @@ document.querySelector(':root').style.setProperty('--color', '#eee')
 ```js
 document.querySelector('html').className = 'dark'
 ```
+
+## <noscript>元素
+
+> <noscript> 元素出现，被用于给不支持 JavaScript 的浏览器提供替代内容
+
+```js
+<noscript>
+  <p>This page requires a JavaScript-enabled browser.</p>
+</noscript>
+```
+
+## 严格模式
+ECMAScript 5 增加了严格模式(strict mode)的概念。严格模式是一种不同的 JavaScript 解析和执 行模型，ECMAScript 3 的一些不规范写法在这种模式下会被处理，对于不安全的活动将抛出错误。要对 整个脚本启用严格模式，在脚本开头加上这一行:
+
+```js
+"use strict";
+```
+1. 在严格模式下，不能定义名为 eval 和 arguments 的变量，否则会导致语法错误。

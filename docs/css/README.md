@@ -264,3 +264,19 @@ border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) / 10px / 10px;
 ```
 
 [codepen - 渐变色边框](https://codepen.io/hearto_o/pen/wvpppNW)
+
+## mask
+> 允许使用者通过遮罩或者裁切特定区域的图片的方式来隐藏一个元素的部分或者全部可见区域
+```css
+.mask {
+  width: 100px;
+  height: 40px;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  background-color: #415eff;
+  mask: linear-gradient(to right, transparent, #415eff, transparent);
+  -webkit-mask: linear-gradient(to right, transparent, #415eff, transparent);
+}
+```
+> [mdn-mask](https://developer.mozilla.org/zh-CN/docs/Web/CSS/mask)
