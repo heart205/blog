@@ -266,7 +266,9 @@ border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) / 10px / 10px;
 [codepen - 渐变色边框](https://codepen.io/hearto_o/pen/wvpppNW)
 
 ## mask
+
 > 允许使用者通过遮罩或者裁切特定区域的图片的方式来隐藏一个元素的部分或者全部可见区域
+
 ```css
 .mask {
   width: 100px;
@@ -279,4 +281,21 @@ border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) / 10px / 10px;
   -webkit-mask: linear-gradient(to right, transparent, #415eff, transparent);
 }
 ```
+
 > [mdn-mask](https://developer.mozilla.org/zh-CN/docs/Web/CSS/mask)
+
+### css 层叠性
+
+> 1. 当元素的层叠水平一致、层叠顺序相同的时候，在 DOM 流中处于后面的元素会覆盖前面的元素。
+> 2. 层叠上下文可以嵌套，内部层叠上下文及其所有子元素均受制于外部的层叠上下文。
+
+#### z-index 的层叠性质：
+
+> 其 z-index 值不是 auto 的时候，会创建层叠上下文
+> opacity不是1的时候 也会创建层级上下文
+> [层叠上下文解释](https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/)
+
+### flex
+
+- `flex-grow` 属性定义项目的放大比例 默认为 0
+- `flex-shrink` 属性定义了项目的缩小比例，默认为 1，即如果空间不足，该项目将缩小。

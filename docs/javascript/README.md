@@ -29,9 +29,9 @@ document.querySelector(':root').style.setProperty('--color', '#eee')
 document.querySelector('html').className = 'dark'
 ```
 
-## <noscript>元素
+## `noscript`元素
 
-> <noscript> 元素出现，被用于给不支持 JavaScript 的浏览器提供替代内容
+> `noscript` 元素出现，被用于给不支持 JavaScript 的浏览器提供替代内容
 
 ```js
 <noscript>
