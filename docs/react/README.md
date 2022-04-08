@@ -16,7 +16,8 @@ ReactDOM.unmountComponentAtNode(divTag)
 
 > 如果 React 元素之前已经在 container 里渲染过，这将会对其执行更新操作，并仅会在必要时改变 DOM 以映射最新的 React 元素。<br />
 > 首次调用时，容器节点里的所有 DOM 元素(子节点)都会被替换
-> callback callback将在组件被渲染或更新之后被执行
+> callback callback 将在组件被渲染或更新之后被执行
+
 ```js
 ReactDOM.render(
   <MessageFunction
@@ -37,3 +38,16 @@ ReactDOM.render(
 ```
 
 > [render](https://zh-hans.reactjs.org/docs/react-dom.html#render)
+
+### dangerouslySetInnerHTML
+
+直接在 react 中添加 DOM 元素会被当作字符串解析
+dangerouslySetInnerHTML 是 React 为浏览器 DOM 提供 innerHTML 的替换方案 `key 为 __html`
+
+```tsx
+<code>
+  <pre dangerouslySetInnerHTML={{ __html: prismjs.highlight(JSON.stringify(code, null, 2) || '', prismjs.languages[language], language) }}></pre>
+</code>
+```
+
+> [dangerouslySetInnerHTML](https://zh-hans.reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml)

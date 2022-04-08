@@ -19,7 +19,6 @@ var toggleTimer = null
 //   btn.childNodes[i ^ 1].setAttribute('style', '');
 //   localStorage.setItem('vuepress-color-scheme', theme === 'dark' ? 'dark' : 'auto')
 // }
-
 function toggleDark() {
   console.log("自动更新主题已开启");
   toggleTimer = setInterval(() => {
