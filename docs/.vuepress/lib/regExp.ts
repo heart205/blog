@@ -4,6 +4,6 @@
  */
 
 export function getStringLength(string: string) {
-  const reg = /\<.*?>|\<\/.*?>|\s|\#*|\-/gm;
+  const reg = /\<.*?>|\<\/.*?>|\s|\#*|^\-/gm;
   return string.replace(reg, '');
 }

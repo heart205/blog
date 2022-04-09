@@ -23,12 +23,11 @@ export default defineUserConfig<DefaultThemeOptions>({
         },
       },
     ],
-    [path.resolve(__dirname, './lib/toggleDark.js'), true],
     [path.resolve(__dirname, './lib/statistic.ts'), true],
     [{
       name: 'statisticString',
       clientAppSetupFiles: () => {
-        return path.resolve(__dirname, './lib/stringLength.ts');
+        return path.resolve(__dirname, './lib/useSetup.ts');
       },
     }, true],
   ],
