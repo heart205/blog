@@ -21,6 +21,7 @@ layout: 'heart-layout'
 
 ## 算法
 
+- [算法日常](algorithm)
 - [lc](algorithm)
 
 ## 开发工具
@@ -54,3 +55,7 @@ layout: 'heart-layout'
 ## 小游戏
 
 - [flex - grid 小游戏](https://codingfantasy.com/games)
+
+## 字体查找
+
+- [求字体](https://www.qiuziti.com/)
