@@ -1,5 +1,26 @@
 # javaScript
 
+## DOM
+
+### getBoundingClientRect
+
+getBoundingClientRect 返回一个 DOMRect 对象
+
+> top left right bottom 为元素到视口的距离 width height 为元素的宽高
+
+```js
+DOMRect :{
+  bottom: 260,
+  height: 200,
+  left: 60,
+  right: 484.2421875,
+  top: 60,
+  width: 424.2421875,
+  x: 60,
+  y: 60,
+}
+````
+
 ## 通过 js 修改 css 变量
 
 ```css
@@ -63,4 +84,81 @@ ascii 码转字符串：
 ```js
 const num = 97;
 String.fromCharCode(num);
+```
+
+## Map 映射类型
+
+[map - mdn](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map)
+
+get set 方法
+
+```ts
+const map: Map<string, string> = new Map();
+map.set('name', 'zhangsan');
+map.get('name');
+```
+
+> size 属性
+
+```ts
+map.size;
+```
+
+### forEach 迭代 map
+
+```ts
+myMap.forEach((val, key) => {
+  // ....
+});
+```
+
+### map 和二维数组的关系：
+
+二维数组转 map
+
+```ts
+let kvArray: Array<Readonly<[string, string]>> = [
+  ['key1', 'value1'],
+  ['key2', 'value2'],
+];
+
+let myMap = new Map<string, string>(kvArray);
+```
+
+使用 Array.from 函数可以将一个 Map 对象转换成一个二维键值对数组
+
+```ts
+Array.from(kvArray);
+// 也可以使用扩展运算符
+//[...kvArray]
+```
+
+只获取 key 的遍历值
+
+```ts
+[...map.keys()];
+```
+
+只获取 value 的值
+
+```ts
+[...myMap.values()];
+```
+
+map 的克隆
+
+> 数据本身未被克隆。
+
+```ts
+let original = new Map([[1, { name: '张三', age: 18 }]]);
+
+let clone = new Map(original);
+
+const d = clone.get(1);
+
+if (d) d.age = 21;
+
+console.log(clone.get(1)); // { name: '张三', age: 21 }
+
+console.log(original.get(1)); // { name: '张三', age: 21 }
 ```

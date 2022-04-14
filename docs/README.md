@@ -59,3 +59,7 @@ layout: 'heart-layout'
 ## 字体查找
 
 - [求字体](https://www.qiuziti.com/)
+
+## 海报设计
+
+- [海报设计](https://www.gaoding.com/introduction)

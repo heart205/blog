@@ -1,5 +1,20 @@
 # CSS
 
+### 外边距合并和内边距塌陷
+> BFC 的结界特性最重要的用途其实不是去 margin 重叠或者是清除 float 影响，而是实 现更健壮、更智能的自适应布局。
+1. 触发 BFC 规则
+
+```css
+overflow：hidden
+display:inline-block | inline-block | table-cell
+position:fixed ｜ absolute (不为relative或者static)
+position:absolute
+float 的值不为 none;
+```
+
+2. 父元素添加边框
+3. 父元素给 padding
+
 # css 变量
 
 css 变量的取值操作是根据作用域取值 当前作用域没有 会向上级逐层查找
@@ -229,12 +244,15 @@ border-image-repeat: stretch repeat;
 border-image: url('https://mdn.mozillademos.org/files/4127/border.png') 30;
 
 /*10px这里作为border-image-width*/
-border-image: url('https://mdn.mozillademos.org/files/4127/border.png') 30 / 10px;
+border-image: url('https://mdn.mozillademos.org/files/4127/border.png') 30 /
+  10px;
 /*10px 这里作为border-image-outset*/
-border-image: url('https://mdn.mozillademos.org/files/4127/border.png') 30 / /10px;
+border-image: url('https://mdn.mozillademos.org/files/4127/border.png')
+  30 / /10px;
 
 /*正确写法：*/
-border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) 30 / 10px / 10px;
+border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) 30 / 10px /
+  10px;
 
 /*错误写法：*/
 border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) / 10px / 10px;
@@ -247,7 +265,8 @@ border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) / 10px / 10px;
   width: 100px;
   height: 100px;
   border: 30px solid;
-  border-image: url('https://mdn.mozillademos.org/files/4127/border.png') 33% 33% fill repeat;
+  border-image: url('https://mdn.mozillademos.org/files/4127/border.png') 33%
+    33% fill repeat;
 }
 
 .app {
@@ -255,7 +274,8 @@ border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) / 10px / 10px;
   height: 100px;
   border: 30px solid;
   /*50% 50% 切的四个角都会有颜色 但是 中间切片都为0所以为白色*/
-  border-image: url('https://mdn.mozillademos.org/files/4127/border.png') 50% 50%;
+  border-image: url('https://mdn.mozillademos.org/files/4127/border.png') 50%
+    50%;
 }
 ```
 
@@ -268,6 +288,7 @@ border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) / 10px / 10px;
 ## mask
 
 > 允许使用者通过遮罩或者裁切特定区域的图片的方式来隐藏一个元素的部分或者全部可见区域
+> 只能是 transparent 到另外一种颜色的渐变 transparent 为关键 #415eff 为任何值都可以
 
 ```css
 .mask {
@@ -292,10 +313,81 @@ border-image: url(http://7xv39r.com1.z0.glb.clouddn.com/box.png) / 10px / 10px;
 #### z-index 的层叠性质：
 
 > 其 z-index 值不是 auto 的时候，会创建层叠上下文
-> opacity不是1的时候 也会创建层级上下文
+> opacity 不是 1 的时候 也会创建层级上下文
 > [层叠上下文解释](https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/)
 
 ### flex
 
 - `flex-grow` 属性定义项目的放大比例 默认为 0
 - `flex-shrink` 属性定义了项目的缩小比例，默认为 1，即如果空间不足，该项目将缩小。
+
+### counter-increment
+
+css 计数器 [mdn](https://developer.mozilla.org/zh-CN/docs/Web/CSS/counter-increment)
+
+```css
+counter-increment: counter-name;
+```
+
+```css
+.sa::after {
+  /* 0 */
+  content: counter(box);
+}
+
+.box {
+  /* 调用一次 counter-increment: box; box的计数就会加1*/
+  counter-increment: box;
+}
+
+.box::after {
+  /* counter引用计数 */
+  content: counter(box);
+}
+
+.box:nth-child(2) {
+  counter-increment: none;
+}
+
+.box:nth-child(2)::after {
+  content: '';
+}
+
+.span {
+  counter-increment: box;
+}
+
+.span::after {
+  content: counter(box);
+}
+```
+
+```html
+<!-- 0 1 2 3  -->
+<div class="sa"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="span"></div>
+```
+
+### nth-of-type 与 nth-child
+
+[知乎文章](https://zhuanlan.zhihu.com/p/126681521)
+
+## less 用法：
+
+循环写法:
+
+```less
+.circleFor(@i) when(@i < 16) {
+  &:nth-child(@{i}) {
+    width: 170px - @c-w * (@i - 12);
+    height: 170px - @c-w * (@i - 12);
+  }
+  .circleFor(@i + 1);
+}
+```

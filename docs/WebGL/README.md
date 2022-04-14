@@ -211,3 +211,7 @@ mesh.position.x = 5
 mesh.position.z = 5
 mesh.receiveShadow = true // 物体可以接收阴影
 ```
+
+
+### gui
+<https://lil-gui.georgealways.com/#Examples> 推荐的GUI工具
