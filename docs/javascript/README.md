@@ -19,7 +19,17 @@ DOMRect :{
   x: 60,
   y: 60,
 }
-````
+```
+
+## Object
+
+### getOwnPropertyNames
+
+> Object.getOwnPropertyNames()方法返回一个由指定对象的所有自身属性的属性名（包括不可枚举属性但不包括 Symbol 值作为名称的属性）组成的数组。
+
+```js
+Object.getOwnPropertyNames(obj);
+```
 
 ## 通过 js 修改 css 变量
 

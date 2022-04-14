@@ -216,3 +216,17 @@ git show commitId
 ```shell
 git cherry-pick 593f63c60472ed5a5ab00d31f94fbadcdcd5f97d
 ```
+
+## git 设置别名
+
+```shell
+git config --global alias.ck checkout // 这样git ck 就有git checkout的功能了
+```
+
+```shell
+git config --global alias.brc "branch -a --contains" //查看某一个commit 存在于哪些分支
+```
+
+```shell
+git config --global alias.tagc "tag --contains"  // 查看某一个commit 存在于哪些tag
+```
