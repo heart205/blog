@@ -378,16 +378,3 @@ counter-increment: counter-name;
 
 [知乎文章](https://zhuanlan.zhihu.com/p/126681521)
 
-## less 用法：
-
-循环写法:
-
-```less
-.circleFor(@i) when(@i < 16) {
-  &:nth-child(@{i}) {
-    width: 170px - @c-w * (@i - 12);
-    height: 170px - @c-w * (@i - 12);
-  }
-  .circleFor(@i + 1);
-}
-```

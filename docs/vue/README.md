@@ -30,9 +30,9 @@ watch: {
       function getData(newValue, oldValue) {
         // ...
       },
-      function getLength(newValue,oldValue) {
+      function getLength(newValue, oldValue) {
         // ...
-      }
+      },
     ];
   }
 }
@@ -64,3 +64,29 @@ watch: {
   }
 }
 ```
+
+## .sync 的语法糖
+
+sync 只是一个语法糖
+官方例子:
+
+```vue
+<text-document
+  v-bind:title="doc.title"
+  v-on:update:title="doc.title = $event"
+></text-document>
+```
+
+后缩写为:
+
+```vue
+<text-document v-bind:title.sync="doc.title"></text-document>
+```
+
+这样会把 doc 对象中的每一个 property (如 title) 都作为一个独立的 prop 传进去，然后各自添加用于更新的 v-on 监听器。
+
+```vue
+<text-document v-bind.sync="doc"></text-document>
+```
+
+> v-modal 触发的是父组件的 input 事件，.sync 触发的是父组件的 update 事件

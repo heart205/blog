@@ -63,3 +63,13 @@ layout: 'heart-layout'
 ## 海报设计
 
 - [海报设计](https://www.gaoding.com/introduction)
+- [花瓣 UI 设计](https://huaban.com/search?type=board&q=UI)
+- [ui 设计](https://www.ui.cn/)
+
+## 可视化
+
+- [pChart](http://ppchart.com/#/)
+
+## 规范
+
+- [代码规范](https://www.npmjs.com/package/eslint-config-ali)
