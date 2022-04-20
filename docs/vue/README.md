@@ -83,10 +83,12 @@ sync 只是一个语法糖
 <text-document v-bind:title.sync="doc.title"></text-document>
 ```
 
-这样会把 doc 对象中的每一个 property (如 title) 都作为一个独立的 prop 传进去，然后各自添加用于更新的 v-on 监听器。
+> 注意 这里的 update 是 vue 约定好的部分 后面的 title 是要修改的状态的名称 需要和传入的 props 的名字对应（在 sync 中使用的时候）
 
 ```vue
 <text-document v-bind.sync="doc"></text-document>
 ```
+
+这样会把 doc 对象中的每一个 property (如 title) 都作为一个独立的 prop 传进去，然后各自添加用于更新的 v-on 监听器。
 
 > v-modal 触发的是父组件的 input 事件，.sync 触发的是父组件的 update 事件

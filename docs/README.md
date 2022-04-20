@@ -38,6 +38,8 @@ layout: 'heart-layout'
 - [clip - cli](https://bennettfeely.com/clippy/)
 - [渐变色网址](https://color.oulu.me/)
 
+- [loading](https://loading.io/css/)
+
 ## 在线代码编辑
 
 - [codesandbox](https://codesandbox.io/)
@@ -73,3 +75,7 @@ layout: 'heart-layout'
 ## 规范
 
 - [代码规范](https://www.npmjs.com/package/eslint-config-ali)
+
+## 协同开发
+
+- [cloud Studio](https://gh.cloudstudio.net/dashboard/)
