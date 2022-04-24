@@ -29,6 +29,8 @@ DOMRect :{
 
 ```js
 Object.getOwnPropertyNames(obj);
+
+Object.getOwnPropertyNames([].__proto__);
 ```
 
 ## 通过 js 修改 css 变量
@@ -172,3 +174,7 @@ console.log(clone.get(1)); // { name: '张三', age: 21 }
 
 console.log(original.get(1)); // { name: '张三', age: 21 }
 ```
+
+## 内置标准对象
+
+[mdn 链接](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects#%E6%A0%87%E5%87%86%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%E5%88%86%E7%B1%BB)

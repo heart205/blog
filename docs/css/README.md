@@ -1,7 +1,9 @@
 # CSS
 
 ### 外边距合并和内边距塌陷
+
 > BFC 的结界特性最重要的用途其实不是去 margin 重叠或者是清除 float 影响，而是实 现更健壮、更智能的自适应布局。
+
 1. 触发 BFC 规则
 
 ```css
@@ -378,3 +380,9 @@ counter-increment: counter-name;
 
 [知乎文章](https://zhuanlan.zhihu.com/p/126681521)
 
+## 平滑滚动 css
+[scroll-behavior](https://developer.mozilla.org/zh-CN/docs/Web/CSS/scroll-behavior)
+body元素使用此属性无效
+```css
+scroll-behavior: smooth;
+```

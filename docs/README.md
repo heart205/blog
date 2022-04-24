@@ -40,6 +40,8 @@ layout: 'heart-layout'
 
 - [loading](https://loading.io/css/)
 
+- [可视化正则表达式](<https://jex.im/regulex/#!flags=&re=%5E(a%7Cb)*%3F%24>)
+
 ## 在线代码编辑
 
 - [codesandbox](https://codesandbox.io/)
@@ -72,6 +74,7 @@ layout: 'heart-layout'
 ## 可视化
 
 - [pChart](http://ppchart.com/#/)
+- [地图数据获取](http://datav.aliyun.com/portal/school/atlas/area_selector?spm=a2crr.23498931.0.0.391d15ddFqb6LQ)
 
 ## 规范
 
@@ -80,3 +83,14 @@ layout: 'heart-layout'
 ## 协同开发
 
 - [cloud Studio](https://gh.cloudstudio.net/dashboard/)
+
+## 小网站
+
+- [消除图片背景] (https://www.remove.bg/zh)
+- [图片压缩](https://tinypng.com/)
+- [CDN](https://cdnjs.com/)
+- [图片网址](https://unsplash.com/)
+
+## 插图网站
+
+- [插图网站] (https://www.manypixels.co/gallery)
