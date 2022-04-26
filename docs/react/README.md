@@ -120,6 +120,19 @@ const TestUseMemo: React.FC<Props> = () => {
 export default TestUseMemo;
 ```
 
+## useCallback
+
+> 返回一个 memoized 回调函数。在依赖参数不变的情况下，返回的回调函数是同一个引用地址
+> <br/>
+> 每当依赖参数发生改变 useCallback 就会自动重新返回一个新的 memoized 函数（地址发生改变）
+
+使用场景： 优化父子组件传递 callback 刷新问题
+[useCallback 使用场景](https://juejin.cn/post/6844904032113278990#heading-5)
+
+```tsx
+
+```
+
 ## memo
 
-hooks 中的 memo 和 PureComponent 的作用相同 都是完成shouldComponentUpdate的对props浅层的判断
+hooks 中的 memo 和 PureComponent 的作用相同 都是完成 shouldComponentUpdate 的对 props 浅层的判断

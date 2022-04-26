@@ -231,3 +231,110 @@ console.log('2');
    ```
 
 4. reactive 定义的数据均不需要`.value`
+
+setup 执行的时机
+
+- 在 beforeCreate 之前执行一次 this 是`undefined`
+
+```js
+setup(props,context) {
+
+}
+```
+
+```vue
+<template slot="qwe"></tempalte>  //已经不推荐写法
+
+<template v-slot:q></template> v3推荐写法
+```
+
+### setup 参数
+
+1. props 值为对象 父组件传递的属性且已经在组件内部声明接收了的
+2. Context ： 上下文对象
+   1. attrs： 值为对象 包含组件外部传递的 并且没有在 props 中配置的声明的属性 相当于$attrs
+   2. Slots: 收到的插槽的内容 相当于 this.$slots
+   3. emit 分发自定义事件的函数 相当于 this.$emit
+
+## 计算属性
+
+```vue
+<template>
+  <div>
+    first-name: <input type="text" v-model="person['first-name']" />
+    <br />
+    last-name: <input type="text" v-model="person['last-name']" />
+    <br />
+    full-name: <input type="text" v-model="person.fullName" />
+  </div>
+</template>
+
+<script>
+import { computed, reactive } from 'vue';
+export default {
+  setup() {
+    const person = reactive({
+      'first-name': '张三',
+      'last-name': '李四',
+      age: 18,
+    });
+    // 计算属性应该为 person 的一个属性 不应该单独变成一个对象
+    // const computedObj = computed(() => {
+    //   return `${person["first-name"]} - ${person["last-name"]}`;
+    // });
+    person.fullName = computed(() => {
+      return `${person['first-name']} - ${person['last-name']}`;
+    });
+    return {
+      person,
+      //  computedObj
+    };
+  },
+};
+</script>
+```
+
+### 测试响应式
+
+```vue
+<template>
+  <div>
+    <button @click="updateB">点击测试响应式</button>
+    {{ b }}
+  </div>
+</template>
+<script>
+let detail = 1;
+import { computed, reactive } from 'vue';
+export default {
+  setup() {
+    const person = reactive({
+      'first-name': '张三',
+      'last-name': '李四',
+      age: 18,
+    });
+    // 由于detail不是响应式数据 所以页面不会刷新
+    const b = computed({
+      get() {
+        return detail + 'b';
+      },
+      set(value) {
+        console.log('a');
+        detail++;
+        // 这里如果换成 person.age++ 即会刷新页面
+        return true;
+      },
+    });
+    function updateB() {
+      b.value++;
+      console.log('更新b', 'detail', detail);
+    }
+    return {
+      person,
+      updateB,
+      b,
+    };
+  },
+};
+</script>
+```

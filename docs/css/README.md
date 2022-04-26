@@ -378,11 +378,44 @@ counter-increment: counter-name;
 
 ### nth-of-type 与 nth-child
 
+> nth-child 表示当前选择的子元素(可以是 class 选择)是父元素的第几个子元素
+> nth-of-type 选择的是兄弟元素 选择当前的元素的标签（例如 div 标签） 是父元素的第几个
+
+```html
+<style>
+  .container:nth-child(4) {
+    background-color: red;
+  }
+
+  .c:nth-of-type(2) {
+    background-color: skyblue;
+  }
+</style>
+<div class="app">
+  <div>111</div>
+  <p class="c">开头</p>
+  <div class="c">class c</div>
+  // skyblue 第二个div元素
+  <div class="container">1</div>
+  // red
+  <div class="container">2</div>
+  <div class="container">3</div>
+  <div class="container">4</div>
+  <div class="c">5</div>
+  <div class="c">6</div>
+  <p class="c">c1</p>
+  // 第二个p元素
+  <p class="contain">末尾</p>
+</div>
+```
+
 [知乎文章](https://zhuanlan.zhihu.com/p/126681521)
 
 ## 平滑滚动 css
+
 [scroll-behavior](https://developer.mozilla.org/zh-CN/docs/Web/CSS/scroll-behavior)
-body元素使用此属性无效
+body 元素使用此属性无效
+
 ```css
 scroll-behavior: smooth;
 ```

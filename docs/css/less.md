@@ -14,7 +14,10 @@
 
 ## less 中 calc 使用
 
+> 这里的百分比是相对于父元素的百分比 `height` 相对于父元素的`height`
+> `width` `margin` `padding` 都是相对父元素的 `width`
+[code](https://codepen.io/hearto_o/pen/MWrdeOB)
 ```less
 @postHeight: 100px;
-margin-bottom: calc(~'@{postHeight}');
+margin-bottom: calc(~'100% - @{postHeight}');
 ```
