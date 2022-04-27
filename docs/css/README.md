@@ -121,7 +121,12 @@ DPR = 物理像素 / 设备独立像素
 }
 ```
 
-> [像素比查询网站](https://screensiz.es/)<br /> > [iPhone Resolutions](https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions)
+> [像素比查询网站](https://screensiz.es/)
+>
+> [iPhone Resolutions](https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions)
+
+> 图片缩小不会模糊 (既然缩小不会模糊，那为什么不全部使用3x图片？)
+> 提高性能, 如果图片全部使用3x图, 提高了手机流量的消耗, 而且页面加载速度也会大打折扣
 
 ## border
 

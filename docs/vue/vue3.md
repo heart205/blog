@@ -253,7 +253,7 @@ setup(props,context) {
 1. props 值为对象 父组件传递的属性且已经在组件内部声明接收了的
 2. Context ： 上下文对象
    1. attrs： 值为对象 包含组件外部传递的 并且没有在 props 中配置的声明的属性 相当于$attrs
-   2. Slots: 收到的插槽的内容 相当于 this.$slots
+   2. slots: 收到的插槽的内容 相当于 this.$slots
    3. emit 分发自定义事件的函数 相当于 this.$emit
 
 ## 计算属性
@@ -338,3 +338,31 @@ export default {
 };
 </script>
 ```
+## watch
+
+watch 单个值的写法
+
+```js
+setup() {
+	let sum = ref(0)
+	watch(sum, (newVal, oldVal) => {
+  	console.log('sum变化', newVal, oldVal)
+	},{immediate: true})
+}
+```
+
+watch 多个值的写法
+
+```js
+watch(
+  [sum, msg],
+  (newVal, oldVal) => {
+    // 此时的newVal是一个数组 oldVal也是一个数组
+    // newVal[newSum,newMsg] oldVal[oldSum,oldMsg]
+    console.log('sum变化', newVal, oldVal);
+  },
+  { immediate: true }
+);
+```
+
+
