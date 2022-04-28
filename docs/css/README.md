@@ -124,9 +124,19 @@ DPR = 物理像素 / 设备独立像素
 > [像素比查询网站](https://screensiz.es/)
 >
 > [iPhone Resolutions](https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions)
-
+>
+> [CSS像素、物理像素、逻辑像素、设备像素比、PPI、Viewport](https://github.com/jawil/blog/issues/21)
+## 多倍图
+> 放大几倍就是几倍图
+>
 > 图片缩小不会模糊 (既然缩小不会模糊，那为什么不全部使用3x图片？)
+>
 > 提高性能, 如果图片全部使用3x图, 提高了手机流量的消耗, 而且页面加载速度也会大打折扣
+>
+> 不全部用多倍图的原因:[博客链接](https://ogliu.com/2020/11/26/2x3x/)
+>
+> b站视频剪辑的图片:
+<img src="/images/css/image@2x.jpg">
 
 ## border
 
@@ -384,6 +394,7 @@ counter-increment: counter-name;
 ### nth-of-type 与 nth-child
 
 > nth-child 表示当前选择的子元素(可以是 class 选择)是父元素的第几个子元素
+>
 > nth-of-type 选择的是兄弟元素 选择当前的元素的标签（例如 div 标签） 是父元素的第几个
 
 ```html

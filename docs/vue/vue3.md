@@ -4,6 +4,9 @@
 
 `npm init vite-app <project-name>`
 
+或者 
+`npm init @vitejs/app` 选择版本
+
 ## 一些特性
 
 ```js
