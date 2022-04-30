@@ -125,18 +125,20 @@ DPR = 物理像素 / 设备独立像素
 >
 > [iPhone Resolutions](https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions)
 >
-> [CSS像素、物理像素、逻辑像素、设备像素比、PPI、Viewport](https://github.com/jawil/blog/issues/21)
+> [CSS 像素、物理像素、逻辑像素、设备像素比、PPI、Viewport](https://github.com/jawil/blog/issues/21)
+
 ## 多倍图
+
 > 放大几倍就是几倍图
 >
-> 图片缩小不会模糊 (既然缩小不会模糊，那为什么不全部使用3x图片？)
+> 图片缩小不会模糊 (既然缩小不会模糊，那为什么不全部使用 3x 图片？)
 >
-> 提高性能, 如果图片全部使用3x图, 提高了手机流量的消耗, 而且页面加载速度也会大打折扣
+> 提高性能, 如果图片全部使用 3x 图, 提高了手机流量的消耗, 而且页面加载速度也会大打折扣
 >
 > 不全部用多倍图的原因:[博客链接](https://ogliu.com/2020/11/26/2x3x/)
 >
-> b站视频剪辑的图片:
-<img src="/images/css/image@2x.jpg">
+> b 站视频剪辑的图片:
+> <img src="/images/css/image@2x.jpg">
 
 ## border
 
@@ -434,4 +436,30 @@ body 元素使用此属性无效
 
 ```css
 scroll-behavior: smooth;
+```
+
+## 元素层级 遮挡解决方案
+
+元素遮挡（层级/定位等等）导致无法点击下层元素解决方案
+
+> MDN 解释: CSS 属性指定在什么情况下 (如果有) 某个特定的图形元素可以成为鼠标事件的 target。
+>
+> 则设置成 none 的话 当前的元素将不会被鼠标事件的 target 则不会被选中
+>
+> https://developer.mozilla.org/zh-CN/docs/Web/CSS/pointer-events
+
+```css
+pointer-events: none;
+```
+
+可以使用这个特性 制作 canvas 水印的时候 让水印在最高层级 但是不会被选中
+
+```css
+cnavas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
 ```

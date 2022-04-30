@@ -71,3 +71,9 @@ methods: {
 }
 </script>
 ```
+
+## 生命周期钩子
+
+如果一个组件没有(el 或者 template)，那么它的生命周期钩子 beforeCreate() 和 created() 会被调用 其他的不会被调用。
+
+<img src="/images/lifecycle.png">
