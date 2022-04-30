@@ -59,7 +59,7 @@ export default {
 >
 > 如果有重名 setup 优先
 >
-> setup 不能是一个 async 函数 因为返回值不再是对象 而是一个 promise
+> setup 普通情况下不能是一个 async 函数 因为返回值不再是对象 而是一个 promise(在 suspense 中可以使用 async 和 promise 实例对象)
 
 ## ref
 
@@ -445,7 +445,7 @@ watch([() => person.age, () => person.name], (newVal, oldVal) => {
 });
 ```
 
-## 获取对象的ref 的使用
+## 获取对象的 ref 的使用
 
 ### 单个 ref 的使用
 
@@ -528,52 +528,52 @@ beforeUnmount ==> onBeforeUnmount
 
 unmounted ===> onUnmounted
 
-## 自定义hooks
+## 自定义 hooks
 
-hooks有点类似于mixin的方式 本质是一个函数
+hooks 有点类似于 mixin 的方式 本质是一个函数
 
-> 开头以use开头（一种约定俗成）
+> 开头以 use 开头（一种约定俗成）
 
-> useMouseDown 的hook实现 全局单一挂载 并且数据返回的始终是鼠标的点击的位置
+> useMouseDown 的 hook 实现 全局单一挂载 并且数据返回的始终是鼠标的点击的位置
 
 ```js
-import { reactive, onMounted, onBeforeUnmount } from 'vue'
+import { reactive, onMounted, onBeforeUnmount } from 'vue';
 
-let isInit = false
+let isInit = false;
 const obj = {
   x: 0,
-  y: 0
-}
+  y: 0,
+};
 export default function () {
-  const mouseDown = reactive(obj)
+  const mouseDown = reactive(obj);
   const ev = (e) => {
-    mouseDown.x = e.clientX
-    mouseDown.y = e.clientY
-  }
+    mouseDown.x = e.clientX;
+    mouseDown.y = e.clientY;
+  };
   if (!isInit) {
-    isInit = true
+    isInit = true;
     onMounted(() => {
-      console.log('onMounted')
-      window.addEventListener('mousedown', ev)
-    })
+      console.log('onMounted');
+      window.addEventListener('mousedown', ev);
+    });
 
     onBeforeUnmount(() => {
-      window.removeEventListener('mousedown', ev)
-    })
+      window.removeEventListener('mousedown', ev);
+    });
   }
 
-  return mouseDown
+  return mouseDown;
 }
 ```
 
 ## toRef
 
-- 创建一个ref对象其value指向的是另外一个对象中的某个属性
+- 创建一个 ref 对象其 value 指向的是另外一个对象中的某个属性
 
 > 应用场景： 将响应式对象中的某个属性单独提供给外部使用
 
 ```js
-const name = toRef(person,'name') // 将person.name的包装成RefImpl
+const name = toRef(person, 'name'); // 将person.name的包装成RefImpl
 ```
 
 ```vue
@@ -585,19 +585,19 @@ const name = toRef(person,'name') // 将person.name的包装成RefImpl
 </template>
 
 <script>
-import { reactive, toRef } from "vue";
+import { reactive, toRef } from 'vue';
 export default {
   setup() {
     const person = reactive({
-      name: "jsoin",
-      age: "17",
+      name: 'jsoin',
+      age: '17',
       detail: {
         a: 1,
         b: 2,
       },
     });
     // 将person.detail.a 通过ref包裹了一层 使得它能够响应式
-    const r = toRef(person.detail, "a");
+    const r = toRef(person.detail, 'a');
     console.log(r);
     function handleChange() {
       r.value++;
@@ -611,7 +611,7 @@ export default {
 </script>
 ```
 
-> toRefs与toRef功能一致 dandy批量创建多个ref对象 
+> toRefs 与 toRef 功能一致 dandy 批量创建多个 ref 对象
 
 ```js
 const p = toRefs（person）
@@ -661,9 +661,9 @@ export default {
 
 只处理基本数据类型的响应式 不进行对象的响应式处理
 
-如果监听的是一个对象属性 则不会调用reactive变成proxy
+如果监听的是一个对象属性 则不会调用 reactive 变成 proxy
 
->  shallowRef监听的如果是一个对象 不更改对象的属性值 则直接替换对象 也能响应式
+> shallowRef 监听的如果是一个对象 不更改对象的属性值 则直接替换对象 也能响应式
 
 ```js
 <template>
@@ -719,20 +719,20 @@ export default {
 </template>
 
 <script>
-import { reactive, toRaw } from "vue";
+import { reactive, toRaw } from 'vue';
 export default {
   setup() {
     const demo = {
-      ds: "dd",
+      ds: 'dd',
     };
     const person = reactive({
-      detail: "detial",
+      detail: 'detial',
       d: demo,
     });
     // 将person.d 没有代理之前的对象返回
     const a = toRaw(person.d);
     function handleClick() {
-      a.ds = "123";
+      a.ds = '123';
       console.log(a);
       console.log(a === demo); // true toRaw返回的是proxy之前的对象
     }
@@ -760,12 +760,12 @@ export default {
 </template>
 
 <script>
-import { markRaw, reactive } from "vue";
+import { markRaw, reactive } from 'vue';
 // markRaw 标记了person  使其不会变成一个响应式的对象
 export default {
   setup() {
     const person = {
-      name: "join",
+      name: 'join',
       age: 18,
     };
     const p = reactive(markRaw(person));
@@ -781,7 +781,7 @@ export default {
 </script>
 ```
 
-也可以让reactive的某一个对象不变成响应式对象
+也可以让 reactive 的某一个对象不变成响应式对象
 
 ```vue
 <template>
@@ -792,14 +792,14 @@ export default {
 </template>
 
 <script>
-import { markRaw, reactive } from "vue";
+import { markRaw, reactive } from 'vue';
 export default {
   setup() {
     const d = markRaw({
-      hobby: "play",
+      hobby: 'play',
     });
     const person = {
-      name: "join",
+      name: 'join',
       age: 18,
       d,
     };
@@ -816,8 +816,7 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
 ```
 
 > 应用场景： 有些值不应该设置为响应式 例如第三方库等等
@@ -826,7 +825,7 @@ export default {
 
 ## customerRef
 
-一个自定义的ref 对其依赖跟踪和更新触发进行显示的控制
+一个自定义的 ref 对其依赖跟踪和更新触发进行显示的控制
 
 > 实现一个防抖的功能
 
@@ -840,7 +839,7 @@ export default {
 
 <script>
 // 实现一个防抖的功能
-import { customRef } from "vue";
+import { customRef } from 'vue';
 export default {
   setup() {
     function myRef(val, delay = 1000) {
@@ -848,12 +847,12 @@ export default {
       return customRef((track, trigger) => {
         return {
           get() {
-            console.log("val value:", val);
+            console.log('val value:', val);
             track(); // 通知vue追踪数据的变化 是否进行依赖更踪
             return val;
           },
           set(newVal) {
-            console.log(" trigger template update" + newVal);
+            console.log(' trigger template update' + newVal);
             timer && clearTimeout(timer);
             timer = setTimeout(() => {
               val = newVal;
@@ -863,7 +862,7 @@ export default {
         };
       });
     }
-    const text = myRef("hello");
+    const text = myRef('hello');
     return {
       text,
     };
@@ -872,7 +871,7 @@ export default {
 </script>
 ```
 
-## provide与inject
+## provide 与 inject
 
 实现祖先组件与后代组件间的通信
 
@@ -881,7 +880,6 @@ export default {
 > App.vue:
 
 ```vue
-
 <template>
   <div class="app" :style="{ background: background.backgroundColor }">
     <HelloWorld />
@@ -889,22 +887,22 @@ export default {
 </template>
 
 <script>
-import { reactive, provide } from "vue";
-import HelloWorldVue from "./components/HelloWorld.vue";
+import { reactive, provide } from 'vue';
+import HelloWorldVue from './components/HelloWorld.vue';
 export default {
-  name: "App",
+  name: 'App',
   components: {
     HelloWorld: HelloWorldVue,
   },
   setup() {
     const background = reactive({
-      backgroundColor: "#fff",
+      backgroundColor: '#fff',
     });
     function changeColor() {
-      background.backgroundColor = "#ccc";
+      background.backgroundColor = '#ccc';
     }
     // 可以提供多个provide供后代组件使用
-    provide("background", {
+    provide('background', {
       state: background,
       action: changeColor,
     });
@@ -924,11 +922,11 @@ export default {
 </template>
 
 <script>
-import { inject } from "vue";
+import { inject } from 'vue';
 export default {
   setup() {
     // inject 获取provide提供的数据
-    const val = inject("background");
+    const val = inject('background');
     function handleChange() {
       val.action();
     }
@@ -952,22 +950,199 @@ export default {
 
 ## Fragment
 
-在Vue2中：组件必须有一个根标签
+在 Vue2 中：组件必须有一个根标签
 
-在Vue3中：组件可以没有根标签，内部会将多个标签包含在一个Fragment虚拟元素中，
+在 Vue3 中：组件可以没有根标签，内部会将多个标签包含在一个 Fragment 虚拟元素中，
 
->  好处：减少标签层级，减小内存占用
+> 好处：减少标签层级，减小内存占用
 
 ## Teleport
 
-`Teleport` 能够将组件html结构移动到指定位置的技术
+`Teleport` 能够将组件 html 结构移动到指定位置的技术
 
-> 可以写html元素 或者是css选择器
+> 可以写 html 元素 或者是 css 选择器
 
 ```vue
 <teleport to="body">
- <!-- canvas 移动到body元素下--> 
+ <!-- canvas 移动到body元素下-->
     <canvas ref="canvas" class="canvas"></canvas>
   </teleport>
 ```
 
+## Suspense
+
+> 静态引入和异步引入的区别就是 静态引入需要等待文件引入完成才会去渲染模版
+>
+> 而异步引入无需去等待组件是否引入完成
+
+```js
+import Children from './components/child'; // 静态引入
+
+import { defineAsyncComponent } from 'vue'; //异步引入
+const Child = defineAsyncComponent(() => import('./components/child'));
+```
+
+```vue
+<template>
+  <Suspense>
+    <!-- v-slot:default 默认显示的组件-->
+    <template v-slot:default>
+      <HelloWorldAsync />
+    </template>
+    <!-- v-slot:fallback 组件异步引入的过程中显示的组件-->
+    <template v-slot:fallback>
+      <div>加载中</div>
+    </template>
+  </Suspense>
+</template>
+
+<script>
+import { defineAsyncComponent } from 'vue';
+const HelloWorldAsync = defineAsyncComponent(() =>
+  import('./components/HelloWorld.vue')
+);
+export default {
+  name: 'App',
+  components: {
+    HelloWorldAsync,
+  },
+};
+</script>
+```
+
+如果组件在 suspense 中 则组件可以使用 setup 返回一个 promise 的实例对象
+
+```vue
+<template>
+  <WaterMaker />
+  <br />
+  {{ obj.x }}
+  <br />
+  {{ obj.y }}
+</template>
+
+<script>
+import { ref } from 'vue';
+import SignCanvas from './canvas.vue';
+import WaterMaker from './waterMaker.vue';
+import BaseUrl from './baseUrl.vue';
+import useMouseDown from '../hooks/useMouseDown';
+export default {
+  components: {
+    SignCanvas,
+    WaterMaker,
+    BaseUrl,
+  },
+  setup() {
+    // 此时可以返回一个promise 的实例对象
+    return new Promise((resolve, reject) => {
+      let objRef = ref({ a: 1, b: 2 }); // 引用数据类型的对象是RefImpl 里面的value是Proxy对象
+      const obj = useMouseDown();
+      setTimeout(() => {
+        resolve({
+          objRef,
+          obj,
+          click() {
+            objRef.value.a++;
+          },
+        });
+      }, 1000);
+    });
+  },
+};
+</script>
+```
+
+setup 改为 async await 的方式
+
+```js
+  async setup() {
+    return await new Promise((resolve, reject) => {
+      let objRef = ref({ a: 1, b: 2 }) // 引用数据类型的对象是RefImpl 里面的value是Proxy对象
+      const obj = useMouseDown()
+      setTimeout(() => {
+        resolve({
+          objRef,
+          obj,
+          click() {
+            objRef.value.a++
+          }
+        })
+      }, 1000)
+    })
+  }
+```
+
+## v3 全局 API 调整
+
+将全局的 APl，即：vue.xxx 调整到应用实例（app）上
+
+| 2.x 全局 API (Vue)        | 3.x 实例 API (app)          |
+| ------------------------- | --------------------------- |
+| Vue.config.xxxx           | app.config.xxxx             |
+| Vue.config.production Tip | 移除                        |
+| Vue.component             | app.component               |
+| Vue.directive             | app.directive               |
+| Vue.mixin                 | app.mixin                   |
+| Vue.use                   | app.use                     |
+| Vue.prototype             | app.config.globalProperties |
+
+### 过度类名的修改
+
+V2:
+
+```css
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+}
+.v-leave,
+.v-enter-to {
+  opacity: 1;
+}
+```
+
+V3:
+
+```css
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+.v-leave-from,
+.v-enter-to {
+  opacity: 1;
+}
+```
+
+### 其他特性
+
+1. 移除 keyCode 作为 v-on 的修饰符 不支持`config.keyCodes`
+
+   v2 中：按下回车键触发的操作
+
+```html
+<div @keyup.13="handleDown"></div>
+```
+
+```js
+Vue.config.keyCodes.enters = 13; // 自定义一个别名的按键
+```
+
+2. 移除`v-on.native`修饰符
+
+   在 v3 中 如果要声明自定义事件 需要在子组件中声明 emits
+   ```vue
+   <components v-on:close="handleClose" v-on:click="handleClick" />
+   ```
+
+   ```vue
+   <script>
+   export default {
+     // 此时没有指定click 则 close被认为是一个自定义事件 click被认为是一个原声事件
+     emits: ['close'],
+   };
+   </script>
+   ```
+
+3. 移除过滤器(filer)
