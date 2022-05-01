@@ -509,6 +509,8 @@ export default {
 `destoryed` 改名为 `unmounted`
 其他的钩子和 v2 中的一样
 
+<img src="/images/lifecycle3.png">
+
 ### 组合式 api 的钩子
 
 > 如果有 before Create 和 setup setup 先执行
