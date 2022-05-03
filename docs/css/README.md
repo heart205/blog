@@ -463,3 +463,10 @@ cnavas {
   pointer-events: none;
 }
 ```
+
+## line-height
+如果是个数值类型 则根据当前字体大小计算
+
+```css
+line-height: 1.5 // 会根据当前的字体大小 * 1.5 则是行高
+```

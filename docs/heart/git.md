@@ -1,5 +1,19 @@
 # Git
 
+## 查看全局配置
+
+```shel
+git config --global --list
+```
+
+## 查看本地配置
+
+```shel
+git config --local --list
+```
+
+
+
 ## 修改当前项目的用户名和邮箱
 
 修改用户名:
@@ -94,6 +108,17 @@ git branch --set-upstream-to origin/<远程分支名>  <本地分支名>
 
 ### 远程分支
 
+新建远程分支
+
+```shell
+git checkout -b dev //新建dev本地分支
+git push origin dev //将dev分支推送到远程
+git branch --set-upstream-to=origin/dev //分支关联
+git branch -a // 查看分支
+```
+
+
+
 查看远程分支
 
 ```shell
@@ -152,7 +177,7 @@ git checkout <分支名>
 
 ### 合并分支
 
-// 将分支内容合并到 main 分支中
+ 将分支内容合并到 main 分支中
 
 ```shell
 git merge main
@@ -230,3 +255,18 @@ git config --global alias.brc "branch -a --contains" //查看某一个commit 存
 ```shell
 git config --global alias.tagc "tag --contains"  // 查看某一个commit 存在于哪些tag
 ```
+
+## 解决Git中fatal: refusing to merge unrelated histories
+
+两个分支没有任何的关系 则合并失败 可以添加 `--allow-unrelated-histories`解决
+
+```shell
+git merge master --allow-unrelated-histories
+```
+
+如果是`git pull`或者`git push`报`fatal: refusing to merge unrelated histories`
+
+```shel
+git pull origin master --allow-unrelated-histories
+```
+

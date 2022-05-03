@@ -34,6 +34,7 @@ let arrayGenerics: Array<string | number> = [1, 2, 3, 4, 5, '5']
 ```
 
 3. 特殊的还可以使用一个接口去表示一个数组
+
    > 数字索引是 string 索引的子集 <br />
 
 ```ts
@@ -86,6 +87,26 @@ interface IArguments {
 }
 ```
 
+
+## 函数
+## 接口 interface
+###  接口声明函数类型
+
+```ts
+interface func {
+  (): void
+  timer?: number
+}
+
+const func: func = () => {
+  console.log(func.timer)
+}
+
+console.log(func())
+```
+
+
+## 类
 ## keyof 操作符
 
 > keyof 不仅获取的是当前类型的键 还会获取当前元素的原型链上的键
@@ -231,6 +252,7 @@ type isType = [T] extends [
 ```
 
 1. 对对象使用
+
    > JavaScript 对象的属性名会被强制转为一个字符串<br />
 
 ```ts
@@ -312,7 +334,7 @@ type data = typeof UserResponse
 通过索引访问类型 可以查找到其他类型或者元素上的特定的属性
 
 > `['taobao', 'timal', 'alipay'] as const` 表示为只读数组 ’taobao', 'timal', 'alipay'
-> 因为只读数组的值是确定的 才能用 typeof X[keyof typeof X] // 获取 
+> 因为只读数组的值是确定的 才能用 typeof X[keyof typeof X] // 获取
 
 索引类型操作对象:
 
@@ -415,3 +437,7 @@ type toArray<T> = [T] extends [string | number] ? T[] : any
 // type union = (string | number)[]
 type union = toArray<string | number>
 ```
+
+
+## tsconfig 配置文件
+<a href="./tsconfig.html">点击跳转</a>

@@ -98,3 +98,7 @@ layout: 'heart-layout'
 ## 电子书网站
 
 - [电子书网站](https://zh.1lib.tw/)
+
+## 集成工具网站
+- [菜鸟工具](https://c.runoob.com/)
+- [ico图标制作](https://www.dute.org/ico-converter)
