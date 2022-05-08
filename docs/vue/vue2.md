@@ -77,3 +77,13 @@ methods: {
 如果一个组件没有(el 或者 template)，那么它的生命周期钩子 beforeCreate() 和 created() 会被调用 其他的不会被调用。
 
 <img src="/images/lifecycle.png">
+
+## 废置属性
+> slot slot-scope废弃 使用 v-slot代替
+
+
+## 强制刷新
+```js
+...//相关修改操作
+this.$forceUpdate()//强制重新渲染视图
+```

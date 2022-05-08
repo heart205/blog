@@ -438,6 +438,18 @@ body 元素使用此属性无效
 scroll-behavior: smooth;
 ```
 
+**用户体验**及**可访问性**方面的一些做法：
+
+```css
+html:focus-within {
+	scroll-behavior: smooth;
+}
+```
+
+设置了 `html:focus-within` 伪类，而不是直接给 `html` 赋予平滑滚动，这样做的目的是只对使用键盘 `tab` 键切换焦点页面时，让页面进行平滑滚动切换，带来更好的使用体验。
+
+[focus-within伪类](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:focus-within)
+
 ## 元素层级 遮挡解决方案
 
 元素遮挡（层级/定位等等）导致无法点击下层元素解决方案

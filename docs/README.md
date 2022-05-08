@@ -52,6 +52,7 @@ layout: 'heart-layout'
 
 - [undraw - 在线 ui 图](https://undraw.co/)
 - [dribbble](https://dribbble.com/)
+- [my color](https://mycolor.space/?hex=%23845EC2&sub=1)
 
 ## webGL
 
@@ -83,7 +84,6 @@ layout: 'heart-layout'
 ## 协同开发
 
 - [cloud Studio](https://gh.cloudstudio.net/dashboard/)
-
 ## 小网站
 
 - [消除图片背景](https://www.remove.bg/zh)
@@ -102,3 +102,4 @@ layout: 'heart-layout'
 ## 集成工具网站
 - [菜鸟工具](https://c.runoob.com/)
 - [ico图标制作](https://www.dute.org/ico-converter)
+- [小卡片制作](https://shields.io/category/version)
