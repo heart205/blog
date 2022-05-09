@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - name: checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v3
 
     - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@master
+      uses: JamesIves/github-pages-deploy-action@v4.3.3
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
