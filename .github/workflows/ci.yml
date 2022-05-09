@@ -2,7 +2,7 @@ name: heart blog
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   blog-deploy:
     name: blog deploy job
