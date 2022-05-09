@@ -1,4 +1,4 @@
-var toggleTimer = null
+var toggleTimer = null;
 // function toggleDark() {
 //   toggleDark = setInterval(() => {
 //     const date = new Date().getHours();
@@ -20,30 +20,40 @@ var toggleTimer = null
 //   localStorage.setItem('vuepress-color-scheme', theme === 'dark' ? 'dark' : 'auto')
 // }
 function toggleDark() {
-  console.log("自动更新主题已开启");
+  console.log('自动更新主题已开启');
   toggleTimer = setInterval(() => {
-    const date = new Date().getHours()
-    if ((date >= 22 || date < 7) && document.querySelector('html').className != 'dark') {
-      changeSvgStyle('dark')
+    const date = new Date().getHours();
+    if (
+      (date >= 22 || date < 7) &&
+      document.querySelector('html').className != 'dark'
+    ) {
+      changeSvgStyle('dark');
     }
-    if (date >= 7 && date < 22 && document.querySelector('html').className != '') {
-      changeSvgStyle('light')
+    if (
+      date >= 7 &&
+      date < 22 &&
+      document.querySelector('html').className != ''
+    ) {
+      changeSvgStyle('light');
     }
-  }, 1000 * 60)
+  }, 1000 * 60);
 }
 function changeSvgStyle() {
-  const btn = document.querySelector('button[title="toggle dark mode"]')
-  btn && btn.click()
+  const btn = document.querySelector('button[title="toggle dark mode"]');
+  btn && btn.click();
 }
-window.addEventListener(
-  'beforeunload',
-  function () {
-    console.log("清除缓存");
-    toggleTimer && this.clearInterval(toggleTimer)
-  },
-  false
-)
+var window = window || {};
+if (window && window.addEventListener) {
+  window.addEventListener(
+    'beforeunload',
+    function () {
+      console.log('清除缓存');
+      toggleTimer && this.clearInterval(toggleTimer);
+    },
+    false
+  );
+}
 
 export default function () {
-  toggleDark()
+  toggleDark();
 }
