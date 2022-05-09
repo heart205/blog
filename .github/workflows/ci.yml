@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  blog deploy:
+  blog-deploy:
     name: blog deploy job
     runs-on: ubuntu-18.04
     steps:
