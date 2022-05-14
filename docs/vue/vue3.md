@@ -1,5 +1,19 @@
 # Vue 3.0
 
+> [antfu 手写watch](https://antfu.me/posts/watch-with-reactivity)
+>
+> [watch watchEffect](https://www.zhihu.com/question/462378193)
+
+
+
+
+
+## 更新原理
+
+vuex中的数据也是跟vue的ref和reactive一样经过了处理的 
+
+> 如何渲染 以后看源码
+
 ## 初始化
 
 `npm init vite-app <project-name>`
@@ -1148,3 +1162,38 @@ Vue.config.keyCodes.enters = 13; // 自定义一个别名的按键
    ```
 
 3. 移除过滤器(filer)
+
+## 开发遇到的问题:
+
+在vue中使用jsx 语法 如果有警告
+
+> Non-function value encountered for default slot. Prefer function slots
+
+将最后的子组件换成默认插槽 并且以函数式的方法返回值
+
+```ts
+h(
+    SubMenu,
+    {
+      key: item.key,
+      title: item.name
+    },
+    {
+      default: () =>
+        item.children &&
+        item.children instanceof Array &&
+        item.children.map((val) => {
+          if (val.type === 'subMenu') {
+            return useSubItem(val, deepNumber + 1, router)
+          }
+          return useMenuItem(val, deepNumber + 1, router)
+        })
+    }
+  )
+```
+
+## setup常用的hooks
+
+- useStore  获取vuex的store
+
+  [set up](https://v3.cn.vuejs.org/api/sfc-script-setup.html#%E4%BD%BF%E7%94%A8%E7%BB%84%E4%BB%B6)

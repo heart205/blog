@@ -114,3 +114,84 @@ do
 ## 状语从句
 
 # 词性
+
+时间 和 状态 ===> 时态
+
+## 动词语态:
+
+完成进行状态： 动作的一部分完成了 剩下的部分还在进行中 present progressive tense
+
+完成状态： 动作的状态已经做完了 present perfect tense
+
+进行状态：
+
+ 
+
+现在一般状态：
+
+现在进行时：
+
+现在完成时态：present perfect tense 现在完成时态
+
+现在完成进行时态： 现在完成了的状态 但是还会对将来有影响的 present
+
+
+
+---
+
+past perfect tense
+
+Past perfect progressive tense
+
+
+
+
+
+![image-20220511234430958](README.assets/image-20220511234430958.png)
+
+![image-20220511234950620](README.assets/image-20220511234950620.png)
+
+# verbs tense 动词时态
+
+![image-20220511235125104](README.assets/image-20220511235125104.png)
+
+## 一般现在时(并未特别指出的状态)
+
+动词原型 或者 动词原型 + s
+
+1. 表达事实
+
+I eat carrots.
+
+The rabbit eats carrots.
+
+The sun rises in the east.太阳从东边升起.
+
+The earth revolves around the sun. 地球绕太阳转.
+
+You like Papa Rabbit. 你喜欢兔老爹.
+
+2. 表达习惯 重负的动作
+3. 表示预计发生的事
+
+## 现在进行时
+
+be的变为 + 现在分词
+
+## 现在完成时态
+
+已经完成的动作 还对现在造成影响
+
+助动词 have的变位 + 动词的过去分词
+
+have： 1. 实义动词 有  2. 助动词 构成时态
+
+过去分词: 通常 + ed
+
+
+
+![image-20220512000533137](README.assets/image-20220512000533137.png)
+
+## 现在完成进行时态（对未来还有影响）
+
+have 的变位 + been + 动词过去分词

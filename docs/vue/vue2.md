@@ -5,6 +5,8 @@
 
 > 数组响应式：https://segmentfault.com/a/1190000040238233
 
+更新特定的getter 和 setter 更新特定的组件 然后开始diff算法比较
+
 ```js
 Object.defineProperty(data,'count', {
   get() {}
@@ -86,4 +88,39 @@ methods: {
 ```js
 ...//相关修改操作
 this.$forceUpdate()//强制重新渲染视图
+```
+
+## provide/inject
+
+provide的使用:
+
+```vue
+<script>
+  // 父组件
+  export default {
+  provide() {
+    return {
+      parentIsJEditableTable: true,
+      getDestroyCleanGroupRequest: () => this.destroyCleanGroupRequest
+    }
+  }
+}
+</script>
+```
+
+在子组件中 可以用 对象或者数组接收
+
+```vue
+  inject: {
+    'isShowRelateQuery': { default: false}
+  },
+// 或者数组：
+inject:['closeCurrent'],
+```
+
+## v-for 直接循环的例子
+```js
+<div  v-for="index of 5" :key="index">
+    第{{index}}个
+</div>
 ```
