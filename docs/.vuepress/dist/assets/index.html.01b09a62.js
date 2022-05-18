@@ -1,1 +1,0 @@
-const e={key:"v-72bd3987",path:"/Engineering/prettier/",title:"",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1652025131e3,contributors:[{name:"heart",email:"7362469@qq.com",commits:1}]},filePathRelative:"Engineering/prettier/README.md",stringLength:967};export{e as data};

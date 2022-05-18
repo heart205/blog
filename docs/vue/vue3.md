@@ -4,13 +4,9 @@
 >
 > [watch watchEffect](https://www.zhihu.com/question/462378193)
 
-
-
-
-
 ## 更新原理
 
-vuex中的数据也是跟vue的ref和reactive一样经过了处理的 
+vuex中的数据也是跟vue的ref和reactive一样经过了处理的
 
 > 如何渲染 以后看源码
 
@@ -523,7 +519,7 @@ export default {
 `destoryed` 改名为 `unmounted`
 其他的钩子和 v2 中的一样
 
-<img src="/images/lifecycle3.png">
+<img src="./_images/lifecycle3.png">
 
 ### 组合式 api 的钩子
 

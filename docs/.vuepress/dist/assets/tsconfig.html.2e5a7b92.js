@@ -1,1 +1,0 @@
-const t={key:"v-469f4ee7",path:"/typescript/tsconfig.html",title:"tsconfig \u914D\u7F6E",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1651595056e3,contributors:[{name:"heart",email:"7362469@qq.com",commits:1}]},filePathRelative:"typescript/tsconfig.md",stringLength:8612};export{t as data};

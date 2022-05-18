@@ -1,1 +1,0 @@
-const t={key:"v-3079d013",path:"/css/tailwindcss.html",title:"tailwindcss \u914D\u7F6E",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1651595056e3,contributors:[{name:"heart",email:"7362469@qq.com",commits:1}]},filePathRelative:"css/tailwindcss.md",stringLength:446};export{t as data};
